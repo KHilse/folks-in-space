@@ -28,3 +28,4 @@ Date | Description
  * Added Git repo with .env and .gitignore.
  * Started this Readme.md
  * Included react-google-login, react-router-dom, and axios
+ * Added routes for Home, Profile, Astronauts, and ISSLocation
