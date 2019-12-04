@@ -17,8 +17,14 @@ Misc Deliverables:
 * Readme.md
 * Git repo
 
+## Open Issues
+
+
 ## Dev Notes
 Date | Description
 ---- | ----
-2019-12-4 | Initial commit. Created basic React project space with create-react-app, and added Git repo with .env and .gitignore. Started this Readme.md
-
+2019-12-4 | Initial commit.
+ * Created basic React project space with create-react-app
+ * Added Git repo with .env and .gitignore.
+ * Started this Readme.md
+ * Included react-google-login, react-router-dom, and axios
