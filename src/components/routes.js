@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 // COMPONENTS
 import Home from './pages/home';
@@ -12,13 +12,13 @@ const Routes = props => {
 		<div>
 			<Route exact path="/" component={Home} />
 			<Route path="/profile"  render={
-				() => <Profile user={props.user} updateUser={props.updateUser} />
+				() => (props.user) ? <Profile user={props.user} updateUser={props.updateUser} /> : <Redirect to="/" />
 			} />
 			<Route path="/astronauts"  render={
-				() => <Astronauts user={props.user} updateUser={props.updateUser} />
+				() => (props.user) ? <Astronauts user={props.user} updateUser={props.updateUser} /> : <Redirect to="/" />
 			} />
 			<Route path="/isslocation" render={
-				() => <ISSLocation user={props.user} updateUser={props.updateUser} />
+				() => (props.user) ? <ISSLocation user={props.user} updateUser={props.updateUser} /> : <Redirect to="/" />
 			} />
 		</div>
 	)

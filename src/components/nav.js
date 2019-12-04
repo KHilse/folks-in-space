@@ -35,7 +35,7 @@ const Nav = props => {
 	function handleGoogleLogout() {
 		localStorage.setItem('googleToken', null);
 		localStorage.setItem('googleId', null);
-		props.updateUser(null);
+        props.updateUser(null);
 	}
 
 

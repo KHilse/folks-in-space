@@ -29,3 +29,6 @@ Date | Description
  * Started this Readme.md
  * Included react-google-login, react-router-dom, and axios
  * Added routes for Home, Profile, Astronauts, and ISSLocation
+ * Generated API key at console.developers.google.com
+ * Implemented Google OAuth
+ * Implemented Profile page
