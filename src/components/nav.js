@@ -11,6 +11,8 @@ const Nav = props => {
     let links = <></>; // Fill with additional links based on user state
 
     console.log(`props.user: ${props.user}`);
+    console.log(`astros ${props.astronauts}`);
+    console.log(`iss ${props.issLocationArray}`);
 
     /** Handles Google Oauth login result */
     function responseGoogle(response) {
@@ -34,7 +36,8 @@ const Nav = props => {
     /** Handles Google Oauth logout result */
 	function handleGoogleLogout() {
 		localStorage.setItem('googleToken', null);
-		localStorage.setItem('googleId', null);
+        localStorage.setItem('googleId', null);
+        clearInterval(props.timer);
         props.updateUser(null);
 	}
 

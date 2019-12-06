@@ -23,6 +23,10 @@ Misc Deliverables:
 ## Dev Notes
 Date | Description
 ---- | ----
+2019-12-5 | Making API calls and displaying results to pages.
+ * Created API handler for people-in-space API
+ * Created API handler for ISS Location API
+ * Created constants file
 2019-12-4 | Initial commit.
  * Created basic React project space with create-react-app
  * Added Git repo with .env and .gitignore.
@@ -32,3 +36,4 @@ Date | Description
  * Generated API key at console.developers.google.com
  * Implemented Google OAuth
  * Implemented Profile page
+ * Protected React routes

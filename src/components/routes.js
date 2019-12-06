@@ -15,10 +15,10 @@ const Routes = props => {
 				() => (props.user) ? <Profile user={props.user} updateUser={props.updateUser} /> : <Redirect to="/" />
 			} />
 			<Route path="/astronauts"  render={
-				() => (props.user) ? <Astronauts user={props.user} updateUser={props.updateUser} /> : <Redirect to="/" />
+				() => (props.user) ? <Astronauts astronauts={props.astronauts} user={props.user} updateUser={props.updateUser} /> : <Redirect to="/" />
 			} />
 			<Route path="/isslocation" render={
-				() => (props.user) ? <ISSLocation user={props.user} updateUser={props.updateUser} /> : <Redirect to="/" />
+				() => (props.user) ? <ISSLocation issLocationArray={props.issLocationArray} user={props.user} updateUser={props.updateUser} /> : <Redirect to="/" />
 			} />
 		</div>
 	)
