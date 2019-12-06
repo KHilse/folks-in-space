@@ -23,17 +23,23 @@ Misc Deliverables:
 ## Dev Notes
 Date | Description
 ---- | ----
-2019-12-5 | Making API calls and displaying results to pages.
- * Created API handler for people-in-space API
- * Created API handler for ISS Location API
- * Created constants file
-2019-12-4 | Initial commit.
- * Created basic React project space with create-react-app
- * Added Git repo with .env and .gitignore.
- * Started this Readme.md
- * Included react-google-login, react-router-dom, and axios
- * Added routes for Home, Profile, Astronauts, and ISSLocation
- * Generated API key at console.developers.google.com
- * Implemented Google OAuth
- * Implemented Profile page
- * Protected React routes
+2019-12-6 | Making it pretty
+&nbsp; | Made the ISS path track appear on the globe
+&nbsp; | Included material-ui
+&nbsp; | Applied Material UI styles to nav menu
+&nbsp; | Rough CSS format of content for each app page
+2019-12-5 | Making API calls and displaying results to pages
+&nbsp; | Created API handler for people-in-space API
+&nbsp; | Created API handler for ISS Location API
+&nbsp; | Created constants file
+&nbsp; | Included react-globe
+2019-12-4 | Initial commit
+&nbsp; | Created basic React project space with create-react-app
+&nbsp; | Added Git repo with .env and .gitignore
+&nbsp; | Started this Readme.md
+&nbsp; | Included react-google-login, react-router-dom, and axios
+&nbsp; | Added routes for Home, Profile, Astronauts, and ISSLocation
+&nbsp; | Generated API key at console.developers.google.com
+&nbsp; | Implemented Google OAuth
+&nbsp; | Implemented Profile page
+&nbsp; | Protected React routes

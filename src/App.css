@@ -4,7 +4,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 10vh;
+  min-height: 5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,4 +15,32 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.home-intro {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, 0);
+  width: 50vw;
+  text-align: center;
+}
+
+.astronauts-carousel-container {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, 0);
+  width: 75vw;
+  text-align: center;
+}
+
+.iss-location-container {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, 0);
+  width: 90vw;
+  height: 50vh;
+  text-align: center;
 }

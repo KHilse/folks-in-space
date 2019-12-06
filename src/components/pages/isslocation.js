@@ -14,7 +14,7 @@ const ISSLocation = props => {
     })
 
     return (
-        <div style={{ width: '90vw', height: '50vh' }}>
+        <div className="iss-location-container">
             <h1>ISS Location</h1>
             <ReactGlobe markers={markers} />
         </div>

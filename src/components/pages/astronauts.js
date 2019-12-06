@@ -1,12 +1,16 @@
 import React from 'react';
+import { Paper } from '@material-ui/core';
+import Carousel from 'react-material-ui-carousel';
 
 const Astronauts = props => {
     return (
-        <div>
-            <h1>Astronauts</h1>
-            {props.astronauts.map((astronaut) => {
-                return <p>{astronaut.name} on {astronaut.craft}</p>
-            })}
+        <div className="astronauts-carousel-container">
+            <h1>There are {props.astronauts.length} People in Space</h1>
+            <Carousel animation="slide" interval="3000">
+                {props.astronauts.map((astronaut) => {
+                    return <Paper><h1>{astronaut.name}</h1><h2>Aboard the <i>{astronaut.craft}</i></h2></Paper>
+                })}
+            </Carousel>
         </div>
     )
 }

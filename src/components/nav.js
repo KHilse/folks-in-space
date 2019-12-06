@@ -1,13 +1,35 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+
+
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
-//import axios from 'axios';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const SERVER_URL = process.env.SERVER_URL;
+const useStyles = makeStyles(theme => ({
+    root: {
+      flexGrow: 1,
+    },
+    menuButton: {
+      marginRight: theme.spacing(2),
+    },
+    title: {
+      flexGrow: 1,
+    },
+  }));
+
+
 
 const Nav = props => {
+    const classes = useStyles();
     let links = <></>; // Fill with additional links based on user state
 
     console.log(`props.user: ${props.user}`);
@@ -45,9 +67,10 @@ const Nav = props => {
     if (props.user) { // This is null unless logged in, then it's the token
         links = (
             <>
-                <li><Link to="/profile">Profile</Link></li>
-                <li><Link to="/astronauts">Astronauts</Link></li>
-                <li><Link to="/isslocation">ISS Location</Link></li>
+                <Button color="primary"><Link to="/profile">Profile</Link></Button>
+                <Button color="primary"><Link to="/astronauts">Astronauts</Link></Button>
+                <Button color="primary"><Link to="/isslocation">ISS Location</Link></Button>
+                <Button color="primary">
                 <div className="google-buttons">
                     <span className="google-status">{`Welcome ${props.user.fullName}`}</span>
                     <GoogleLogout 
@@ -56,13 +79,14 @@ const Nav = props => {
                         onLogoutSuccess={handleGoogleLogout}
                     />
     			</div>
+                </Button>
             </> 
         )
     } else {
         links = (
-            <>
+            <Button color="primary">
                 <div className="google-buttons">
-                    <span className="google-status">Log in with Google =></span>
+                    <span className="google-status">Log in with Google =>&nbsp;</span>
                     <GoogleLogin 
                         clientId="703741484512-tdhp2ed5337aqdjgp8dfm6te2ob3mfe8.apps.googleusercontent.com"
                         buttonText="Login"
@@ -72,19 +96,36 @@ const Nav = props => {
                         cookiePolicy={'single_host_origin'}
                     />
     			</div>
-            </> 
+            </Button> 
         )
 
     }
 
+//     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+//     <MenuIcon />
+// </IconButton>
+
+    const colorTheme = createMuiTheme({
+        palette: {
+        primary: { main: "#88f", contrastText: "#fff" },
+        secondary: { main: "#88f", contrastText: "#fff" },
+        contrastText: "#fff"
+        }
+    });
+
     return (
-        <nav>
-            <ul>
-                <li><Link to="/">Home</Link></li>
-                {links}
-
-
-            </ul>
+        <nav className={classes.root}>
+            <ThemeProvider theme={colorTheme}>
+            <AppBar>
+                <Toolbar>
+                    <Typography className={classes.title} variant="h6" color="inherit">
+                        Folks in Space
+                    </Typography>
+                    <Button color="primary"><Link to="/">Home</Link></Button>
+                    {links}
+                </Toolbar>
+            </AppBar>
+            </ThemeProvider>
         </nav>
     )
 }

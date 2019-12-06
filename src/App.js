@@ -15,6 +15,8 @@ dotenv.config();
 
 function App() {
 
+  let M = window.M;
+
   // TODO: set default to null when auth is implemented
   const [user, setUser] = useState(null);
   const [astronauts, setAstronauts] = useState(null);
