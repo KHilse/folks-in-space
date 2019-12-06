@@ -1,4 +1,4 @@
-export const MAX_ISS_LOCATIONS = 10;
+export const MAX_ISS_LOCATIONS = 1000;
 
 
 export const ASTRONAUTS_API_URL = 'http://api.open-notify.org/astros.json';

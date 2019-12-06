@@ -13,7 +13,7 @@ export const fetchIssLocation = (cb) => {
         if (location && location.data && location.data.message === 'success') {
             cb(location.data.iss_position);
         } else {
-            cb([]);
+            cb(null);
         }
     })
     .catch(err => {

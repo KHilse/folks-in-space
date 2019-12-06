@@ -19,37 +19,33 @@ function App() {
   const [user, setUser] = useState(null);
   const [astronauts, setAstronauts] = useState(null);
   const [issLocationArray, setIssLocationArray] = useState([]);
-  const [timer, setTimer] = useState(null);
 
   useEffect(() => {
     console.log(`app.js useEffect: ${user}`);
 
     if (user) {
       // Fetch the people in space array from API and stuff it in a state var
-      // The state update will trigger a re-render of the UI
       fetchAstronauts(handleAstronautsUpdate);
 
-      // Set an interval timer to grab ISS location every few seconds
-      if (!timer) {
-        setTimer(setInterval(() => {
-          fetchIssLocation(handleIssLocationUpdate);
-        }, 5000));  
-      }
+      // Set a timer to grab ISS location every few seconds
+      // The cb of the timeout updates issLocationArray, which is a useEffect dependency
+      // This means that every 5 seconds the API call result will trigger a re-render and
+      // set a new timeout here
+      setTimeout(() => {
+        fetchIssLocation(handleIssLocationUpdate);
+      }, 5000);
     }
-  }, [user]);
+  }, [user, issLocationArray]);
 
   const getUser = (userData) => {
     // See if a token exists, if so, update the user data
-    console.log(`getUser`)
     let token = localStorage.getItem('googleToken');
     if (token) {
-      console.log(`token found`)
       if (!user) {
         setUser(userData);
       }
     } else {
       if (user) {
-        console.log(`setting user to null`)
         setUser(null);
       }
     }
@@ -61,21 +57,20 @@ function App() {
   }
 
   /** This is the callback sent to the fetchIssLocation() API handler */
-  const handleIssLocationUpdate = (issLocation) => {
+  const handleIssLocationUpdate = (newIssLocation) => {
     let tempArr = [...issLocationArray];
     if (tempArr.length === MAX_ISS_LOCATIONS) {
       tempArr.shift(); // throw away extra values when the array is full
     }
-    tempArr.push(issLocation);
+    tempArr.push(newIssLocation);
     setIssLocationArray(tempArr);
   }
-
 
   return (
     <Router>
       <div className="App">
         <header className="App-header">
-          <Nav user={user} updateUser={getUser} timer={timer} />
+          <Nav user={user} updateUser={getUser} />
         </header>
         <Routes user={user} updateUser={getUser} astronauts={astronauts} issLocationArray={issLocationArray} >
         </Routes>
