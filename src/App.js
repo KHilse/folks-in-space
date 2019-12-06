@@ -15,16 +15,12 @@ dotenv.config();
 
 function App() {
 
-  let M = window.M;
-
   // TODO: set default to null when auth is implemented
   const [user, setUser] = useState(null);
   const [astronauts, setAstronauts] = useState(null);
   const [issLocationArray, setIssLocationArray] = useState([]);
 
   useEffect(() => {
-    console.log(`app.js useEffect: ${user}`);
-
     if (user) {
       // Fetch the people in space array from API and stuff it in a state var
       fetchAstronauts(handleAstronautsUpdate);
@@ -68,6 +64,7 @@ function App() {
     setIssLocationArray(tempArr);
   }
 
+  
   return (
     <Router>
       <div className="App">
