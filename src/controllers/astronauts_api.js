@@ -6,14 +6,11 @@ import { ASTRONAUTS_API_URL } from '../constants';
  *    { name: String, craft: String }
  */
 export const fetchAstronauts = (cb) => {
-    console.log(`fetching astronauts`);
     axios.get(ASTRONAUTS_API_URL)
     .then(astros => {
         if (astros && astros.data && astros.data.message === 'success') {
-            console.log(`found astronauts: ${astros.data.people}`)
             cb(astros.data.people);
         } else {
-            console.log(`didnt find astronauts: ${JSON.stringify(astros.data.people)}`)
             cb([]);
         }
     })

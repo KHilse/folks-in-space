@@ -44,3 +44,29 @@
   height: 50vh;
   text-align: center;
 }
+
+.profile-container {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, 0);
+  width: 75vw;
+  text-align: center;
+}
+
+.profile-image {
+  max-width: 10vw;
+  max-height: 10vh;
+}
+
+.pryon-logo {
+  margin: 20px;
+  transform: scale(4);
+  filter: drop-shadow(1px 1px .5px black);
+  transition: transform .5s;
+}
+
+.pryon-logo:hover {
+  transform: scale(5);
+  transition: transform .5s;
+}

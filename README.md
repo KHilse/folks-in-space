@@ -23,6 +23,9 @@ Misc Deliverables:
 ## Dev Notes
 Date | Description
 ---- | ----
+2019-12-7 | Housekeeping
+&nbsp; | Added some descriptive text to ISS Location pane
+&nbsp; | Removed extra console messages
 2019-12-6 | Making it pretty
 &nbsp; | Made the ISS path track appear on the globe
 &nbsp; | Included material-ui

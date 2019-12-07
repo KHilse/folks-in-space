@@ -7,8 +7,8 @@ const Astronauts = props => {
         <div className="astronauts-carousel-container">
             <h1>There are {props.astronauts.length} People in Space</h1>
             <Carousel animation="slide" interval="3000">
-                {props.astronauts.map((astronaut) => {
-                    return <Paper><h1>{astronaut.name}</h1><h2>Aboard the <i>{astronaut.craft}</i></h2></Paper>
+                {props.astronauts.map((astronaut, i) => {
+                    return <Paper key={i}><h1>{astronaut.name}</h1><h2>Aboard the <i>{astronaut.craft}</i></h2></Paper>
                 })}
             </Carousel>
         </div>

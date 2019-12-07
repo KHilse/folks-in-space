@@ -2,9 +2,9 @@ import React from 'react';
 
 const Profile = props => {
     return (
-        <div>
+        <div className="profile-container">
             <h1>Profile</h1>
-            <img src={props.user.profileImage} />
+            <img className="profile-image" src={props.user.profileImage} alt="profile" />
             <p>Full Name: {props.user.fullName}</p>
             <p>First Name: {props.user.firstName}</p>
             <p>Last Name: {props.user.lastName}</p>

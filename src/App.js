@@ -4,7 +4,7 @@ import './App.css';
 
 import { fetchAstronauts } from './controllers/astronauts_api';
 import { fetchIssLocation} from './controllers/iss_location_api';
-import { MAX_ISS_LOCATIONS } from './constants';
+import { MAX_ISS_LOCATIONS, ISS_LOCATION_API_FETCH_INTERVAL } from './constants';
 
 import Nav from './components/nav';
 import Routes from './components/routes';
@@ -15,7 +15,6 @@ dotenv.config();
 
 function App() {
 
-  // TODO: set default to null when auth is implemented
   const [user, setUser] = useState(null);
   const [astronauts, setAstronauts] = useState(null);
   const [issLocationArray, setIssLocationArray] = useState([]);
@@ -23,7 +22,9 @@ function App() {
   useEffect(() => {
     if (user) {
       // Fetch the people in space array from API and stuff it in a state var
-      fetchAstronauts(handleAstronautsUpdate);
+      if (!astronauts) {
+        fetchAstronauts(handleAstronautsUpdate);
+      }
 
       // Set a timer to grab ISS location every few seconds
       // The cb of the timeout updates issLocationArray, which is a useEffect dependency
@@ -31,21 +32,21 @@ function App() {
       // set a new timeout here
       setTimeout(() => {
         fetchIssLocation(handleIssLocationUpdate);
-      }, 5000);
+      }, ISS_LOCATION_API_FETCH_INTERVAL);
     }
-  }, [user, issLocationArray]);
+  }, [user, astronauts, issLocationArray]);
 
   const getUser = (userData) => {
     // See if a token exists, if so, update the user data
     let token = localStorage.getItem('googleToken');
     if (token) {
-      if (!user) {
+      if (userData) {
         setUser(userData);
-      }
-    } else {
-      if (user) {
+      } else { // logout in process
         setUser(null);
       }
+    } else { // no token, no access
+      setUser(null);
     }
   }
 

@@ -7,7 +7,7 @@ const ISSLocation = props => {
         return {
             id: i,
             city: 'ISS',
-            color: 'blue',
+            color: 'yellow',
             coordinates: [marker.latitude, marker.longitude],
             value: 25,
           };
@@ -16,6 +16,7 @@ const ISSLocation = props => {
     return (
         <div className="iss-location-container">
             <h1>ISS Location</h1>
+            <p>Yellow track shows path and current location</p>
             <ReactGlobe markers={markers} />
         </div>
     )
