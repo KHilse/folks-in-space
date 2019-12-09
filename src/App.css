@@ -1,3 +1,7 @@
+body {
+  background-color: #eee;
+}
+
 .App {
   text-align: center;
 }
@@ -31,8 +35,12 @@
   left: 50%;
   top: 10%;
   transform: translate(-50%, 0);
-  width: 75vw;
+  width: 50vw;
   text-align: center;
+}
+
+.astronaut-paper {
+  padding: 2em;
 }
 
 .iss-location-container {

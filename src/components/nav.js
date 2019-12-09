@@ -10,6 +10,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import dotenv from 'dotenv';
+import { catchClause } from '@babel/types';
 dotenv.config();
 
 const useStyles = makeStyles(theme => ({
@@ -87,9 +88,12 @@ const Nav = props => {
 
     const colorTheme = createMuiTheme({
         palette: {
-        primary: { main: "#88f", contrastText: "#fff" },
-        secondary: { main: "#88f", contrastText: "#fff" },
-        contrastText: "#fff"
+            primary: { main: "#88f", contrastText: "#fff" },
+            secondary: { main: "#88f", contrastText: "#fff" },
+            contrastText: "#fff",
+            background: {
+                default: '#c0c0c0',
+            }
         }
     });
 
