@@ -54,11 +54,11 @@ body {
 }
 
 .profile-container {
-  position: absolute;
+  /* position: absolute;
   left: 50%;
   top: 10%;
-  transform: translate(-50%, 0);
-  width: 75vw;
+  transform: translate(-50%, 0); */
+  /* width: 75vw; */
   text-align: center;
 }
 
