@@ -1,4 +1,5 @@
 import axios from 'axios';
+import jsonpAdapter from 'axios-jsonp';
 import '../constants';
 import { ISS_LOCATION_API_URL } from '../constants';
 
@@ -6,11 +7,12 @@ import { ISS_LOCATION_API_URL } from '../constants';
  *    { name: String, craft: String }
  */
 export const fetchIssLocation = (cb) => {
-    axios.get(ISS_LOCATION_API_URL)
+    axios.get(ISS_LOCATION_API_URL, {
+        adapter: jsonpAdapter
+    })
     .then(location => {
-        let data = JSON.parse(location.data.substring(3, location.data.length-1));
-        if (data && data.message === 'success') {
-            cb(data.iss_position);
+        if (location && location.data && location.data.message === 'success') {
+            cb(location.data.iss_position);
         } else {
             cb(null);
         }

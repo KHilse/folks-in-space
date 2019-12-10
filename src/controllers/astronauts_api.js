@@ -1,4 +1,5 @@
 import axios from 'axios';
+import jsonpAdapter from 'axios-jsonp';
 import '../constants';
 import { ASTRONAUTS_API_URL } from '../constants';
 
@@ -6,13 +7,14 @@ import { ASTRONAUTS_API_URL } from '../constants';
  *    { name: String, craft: String }
  */
 export const fetchAstronauts = (cb) => {
-    axios.get(ASTRONAUTS_API_URL)
+    axios.get(ASTRONAUTS_API_URL, {
+        adapter: jsonpAdapter
+    })
     .then(astros => {
         console.log(`astros`)
         console.log(astros.data)
-        let data = JSON.parse(astros.data.substring(3, astros.data.length-1));
-        if (data && data.message === 'success') {
-            cb(data.people);
+        if (astros && astros.data && astros.data.message === 'success') {
+            cb(astros.data.people);
         } else {
             cb([]);
         }
