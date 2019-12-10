@@ -7,10 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
-
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import dotenv from 'dotenv';
-import { catchClause } from '@babel/types';
 dotenv.config();
 
 const useStyles = makeStyles(theme => ({

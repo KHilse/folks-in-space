@@ -19,6 +19,7 @@ function App() {
   const [astronauts, setAstronauts] = useState(null);
   const [issLocationArray, setIssLocationArray] = useState([]);
 
+  // eslint-disable-next-line no-alert
   useEffect(() => {
     if (user) {
       // Fetch the people in space array from API and stuff it in a state var

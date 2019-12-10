@@ -15,7 +15,7 @@ const cardStyle = {
 
 const Profile = props => {
     return (
-        <Card raised="true" style={cardStyle}>
+        <Card raised={true} style={cardStyle}>
             <div>
                 <h1>Profile</h1>
                 <img className="profile-image" src={props.user.profileImage} alt="profile" />
