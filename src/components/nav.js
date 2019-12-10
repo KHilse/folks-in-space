@@ -61,7 +61,7 @@ const Nav = props => {
                 <Button color="primary" align="right"><Link to="/isslocation">ISS Location</Link></Button>
                 <div className="google-buttons">
                     <GoogleLogout 
-                        clientId="406245836490-5is1hkf4v9vfhlc5oavfcm65pldebsbn.apps.googleusercontent.com"
+                        clientId={process.env.GOOGLE_CLIENT_ID}
                         buttonText="Logout"
                         onLogoutSuccess={handleGoogleLogout}
                     />
@@ -72,7 +72,7 @@ const Nav = props => {
         links = (
             <div className="google-buttons">
                 <GoogleLogin 
-                    clientId="703741484512-tdhp2ed5337aqdjgp8dfm6te2ob3mfe8.apps.googleusercontent.com"
+                    clientId={process.env.GOOGLE_CLIENT_ID}
                     buttonText="Login"
                     scope=''
                     onSuccess={responseGoogle}
