@@ -8,8 +8,9 @@ import { ISS_LOCATION_API_URL } from '../constants';
 export const fetchIssLocation = (cb) => {
     axios.get(ISS_LOCATION_API_URL)
     .then(location => {
-        if (location && location.data && location.data.message === 'success') {
-            cb(location.data.iss_position);
+        let data = JSON.parse(location.data.substring(3, location.data.length-1));
+        if (data && data.message === 'success') {
+            cb(data.iss_position);
         } else {
             cb(null);
         }

@@ -8,8 +8,11 @@ import { ASTRONAUTS_API_URL } from '../constants';
 export const fetchAstronauts = (cb) => {
     axios.get(ASTRONAUTS_API_URL)
     .then(astros => {
-        if (astros && astros.data && astros.data.message === 'success') {
-            cb(astros.data.people);
+        console.log(`astros`)
+        console.log(astros.data)
+        let data = JSON.parse(astros.data.substring(3, astros.data.length-1));
+        if (data && data.message === 'success') {
+            cb(data.people);
         } else {
             cb([]);
         }
