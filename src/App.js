@@ -12,6 +12,7 @@ import Routes from './components/routes';
 import dotenv from 'dotenv';
 dotenv.config();
 
+console.log(`app env ${process.env.REACT_APP_GOOGLE_CLIENT_ID}`)
 
 function App() {
 

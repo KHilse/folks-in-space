@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -6,10 +7,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
-import dotenv from 'dotenv';
-dotenv.config();
+//require('dotenv').config();
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -24,6 +23,7 @@ const useStyles = makeStyles(theme => ({
   }));
 
 const Nav = props => {
+    console.log(`env: ${process.env.REACT_APP_GOOGLE_CLIENT_ID}`)
     const classes = useStyles();
     let links = <></>; // Fill with additional links based on user state
 
@@ -52,7 +52,6 @@ const Nav = props => {
         props.updateUser(null);
 	}
 
-
     if (props.user) { // This is null unless logged in, then it's the token
         links = (
             <>
@@ -61,7 +60,7 @@ const Nav = props => {
                 <Button color="primary" align="right"><Link to="/isslocation">ISS Location</Link></Button>
                 <div className="google-buttons">
                     <GoogleLogout 
-                        clientId={process.env.GOOGLE_CLIENT_ID}
+                        clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                         buttonText="Logout"
                         onLogoutSuccess={handleGoogleLogout}
                     />
@@ -72,7 +71,7 @@ const Nav = props => {
         links = (
             <div className="google-buttons">
                 <GoogleLogin 
-                    clientId={process.env.GOOGLE_CLIENT_ID}
+                    clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                     buttonText="Login"
                     scope=''
                     onSuccess={responseGoogle}
