@@ -14,7 +14,7 @@
     "react-material-ui-carousel": "^1.0.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
-    "three": "^0.111.0"
+    "three": "^0.125.0"
   },
   "scripts": {
     "start": "react-scripts start",
